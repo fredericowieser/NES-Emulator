@@ -17,3 +17,13 @@ Let's look at an example:
 Here we can also notice that when not showing a decimal representation that we have a prefix.
 
 ### Bitwise Operations
+
+Their are 6 basic biwise operations we will be using in this project which are...
+
+- `&` - AND
+- `|` - OR
+- `~` - NOT
+- `^` - XOR
+- `<<` - SHIFT LEFT
+- `>>` - SHIFT RIGHT
+
