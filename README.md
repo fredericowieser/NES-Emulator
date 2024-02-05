@@ -78,9 +78,18 @@ Additionally the CPU also has:
 	- This allows us to interrogate the state of the CPU for things such as...
 		- Z?, was the last result equal to 0
 		- C?, has there been a carry operation
-		- I, to enable or disable interupts
+		- I, to enable or disable interrupts
 
 Because of the way that the CPU works one can use illegal operation codes to trigger operations on the CPU which weren't designed by the manufacturer.
+
+### RAM
+One of the interesting things about the NES is that it sports an advertised 2KB RAM size whilst actually being connected to 8KB RAM module. The reason for this is to have 3 copies of the original 2KB on the stick along with the master copy. This technique is known as Mirroring. With this we also have 4 different memory addresses to access the same piece of data on the RAM.
+
+### Picture Processing Unit (PPU)
+The PPU, the module for handling the graphics processing, is another device connected to the CPU's BUS. On top of that, the PPU also has it's own BUS. This BUS is attached to...
+1. 8KB Patter (0x0000 -> 0x1FFF), for sprites etc.
+2. 2KB Name Table (0x2000 -> 0x2FFF), 2D Arrays to store IDs of which patterns to show in background
+3. PALETTES (0x3F00 -> 0x3FFF), describe which colours should be displayed on the screen when combining the sprites and the background.
 
 ## Instructions, Opcodes, & Addressing Modes
 The two most complicated instructions to emulate are the addition and subtraction. More specifically Addition with Carry In (ADC) and Subtraction with Carry In (SBC).
